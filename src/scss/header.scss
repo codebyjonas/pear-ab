@@ -1,0 +1,23 @@
+header {
+    background-color: $primary-color;
+    display: flex;
+    color: white;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+
+    nav {
+        a {
+            background-color: $secondary-color;
+            border-radius: $border-radius;
+            color: white;
+            margin: 0 .5rem;
+            padding: .5rem 1rem;
+            transition: background-color 300ms;
+
+            &:hover {
+                background-color: lighten($secondary-color, 5%);
+            }
+        }
+    }
+}

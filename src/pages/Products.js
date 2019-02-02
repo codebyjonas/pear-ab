@@ -1,9 +1,8 @@
 import React from 'react'
+import Header from '../components/page-elements/Header'
 
 const Products = props => (
-    <div>
-        <h1>{props.title}</h1>
-    </div>
+    <Header title={props.title} />
 )
 
 export default Products
