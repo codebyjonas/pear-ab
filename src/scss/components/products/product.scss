@@ -1,0 +1,16 @@
+.product-container {
+    background-color: white;
+    border-bottom: 2px solid darken($light-grey-color, 15%);
+    border-radius: $border-radius;
+    display: flex;
+    margin-bottom: .25rem;
+    padding: 1rem;
+
+    div {
+        width: 33.33%;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+}

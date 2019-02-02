@@ -3,6 +3,10 @@
 @import 'header';
 @import 'font';
 
+//components
+@import '../scss/components/products/product';
+@import '../scss/components/products/products-header';
+
 body {
     margin: 0;
     padding: 0;
@@ -11,5 +15,11 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: $light-grey;
+    background-color: $light-grey-color;
+}
+
+.page-container {
+  max-width: 1280px;
+  margin: 5rem auto;
+  width: 90%;
 }

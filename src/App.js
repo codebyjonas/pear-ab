@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Stock from './pages/Stock'
 import Orders from './pages/Orders'
-import Products from './pages/Products'
+import ProductsPage from './pages/ProductsPage'
 
 class App extends Component {
 
@@ -12,7 +12,7 @@ class App extends Component {
                 <Switch>
                     <Route path='/' exact render={(props) => <Stock {...props} title={' Stock'} />} />
                     <Route path='/orders' exact render={(props) => <Orders {...props} title={' Orders'} />} />
-                    <Route path='/products' exact render={(props) => <Products {...props} title={' Products'} />} />
+                    <Route path='/products' exact render={(props) => <ProductsPage {...props} title={' Products'} />} />
                 </Switch>
             </Router>
         )
