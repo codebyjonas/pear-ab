@@ -1,5 +1,6 @@
 header {
     background-color: $primary-color;
+    border-bottom: 3px solid darken($primary-color, 10%);
     display: flex;
     color: white;
     padding: 1rem;
@@ -17,6 +18,10 @@ header {
 
             &:hover {
                 background-color: lighten($secondary-color, 5%);
+            }
+
+            &.active {
+                border-bottom: 3px solid white;
             }
         }
     }

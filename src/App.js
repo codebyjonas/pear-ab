@@ -10,9 +10,9 @@ class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <Route path='/' exact render={(props) => <Stock {...props} title={' Stock'} />} />
-                    <Route path='/orders' exact render={(props) => <Orders {...props} title={' Orders'} />} />
-                    <Route path='/products' exact render={(props) => <ProductsPage {...props} title={' Products'} />} />
+                    <Route exact path='/' render={(props) => <Stock {...props} title={' Stock'} />} />
+                    <Route exact path='/orders' render={(props) => <Orders {...props} title={' Orders'} />} />
+                    <Route exact path='/products' render={(props) => <ProductsPage {...props} title={' Products'} />} />
                 </Switch>
             </Router>
         )
