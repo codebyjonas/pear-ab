@@ -27,7 +27,6 @@ class ProductsPage extends React.Component {
 
 
     render() {
-        console.log(this.state.products)
         return (
             <div>
                 <Header title={this.props.title} />
