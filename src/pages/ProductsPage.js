@@ -25,9 +25,7 @@ class ProductsPage extends React.Component {
         this.getProductsFromFirebase()
     }
 
-
     render() {
-        console.log(this.state.products)
         return (
             <div>
                 <Header title={this.props.title} />
