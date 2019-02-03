@@ -4,6 +4,9 @@ import firebase from '../firebase'
 import Orders from '../components/orders/Orders'
 import NewOrder from '../components/orders/NewOrder';
 
+//TMP
+import {calculateQuantity, updateAllQuantity} from '../functions/calculateQuantity'
+
 class OrdersPage extends React.Component {
 
     state = {

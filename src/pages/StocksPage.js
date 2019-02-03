@@ -14,8 +14,8 @@ class StocksPage extends React.Component {
         const db = firebase.firestore()
         db.collection('stocks').get().then((snapshot) => {
             snapshot.docs.forEach(doc => {
-                let product = doc.data()
-                stocks.push(product)
+                let stock = doc.data()
+                stocks.push(stock)
             })
             this.setState({ stocks: stocks })
         })
