@@ -1,0 +1,8 @@
+.orders-header-container {
+    div {
+        width: 25%;
+        &:last-child {
+            text-align: right;
+        }
+    }
+}
