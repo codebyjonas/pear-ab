@@ -1,0 +1,12 @@
+.table-row-container {
+    background-color: white;
+    border-bottom: 2px solid darken($light-grey-color, 15%);
+    border-radius: $border-radius;
+    display: flex;
+    margin-bottom: .25rem;
+
+    div {
+        border-left: 1px solid $light-grey-color;
+        padding: 1rem;
+    }
+}

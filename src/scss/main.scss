@@ -6,6 +6,12 @@
 //components
 @import '../scss/components/products/product';
 @import '../scss/components/products/products-header';
+@import '../scss/components/stocks/stocks-header';
+@import '../scss/components/stocks/stock';
+
+//general-components
+@import '../scss/general-components/table-header.scss';
+@import '../scss/general-components/table-row.scss';
 
 body {
     margin: 0;

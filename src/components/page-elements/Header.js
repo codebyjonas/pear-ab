@@ -11,6 +11,7 @@ const Header = props => (
             <NavLink activeClassName='active' to='/' exact={true}>Lagersaldo</NavLink>
             <NavLink activeClassName='active' to='/orders'>Ordrar</NavLink>
             <NavLink activeClassName='active' to='/products'>Produkter</NavLink>
+            <NavLink activeClassName='active' to='/stocks'>Färdigvarulager</NavLink>
         </nav>
     </header>
 )
