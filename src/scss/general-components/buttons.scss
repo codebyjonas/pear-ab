@@ -1,0 +1,15 @@
+.primary-button {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    border-bottom: 3px solid darken($primary-color, 20%);
+    color: $light-grey-color;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .75rem 1rem;
+    transition: all 300ms;
+
+    &:hover {
+        border-bottom: none;
+        border: 1px solid $light-grey-color;
+    }
+}
