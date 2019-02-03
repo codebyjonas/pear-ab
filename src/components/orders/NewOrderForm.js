@@ -1,5 +1,6 @@
 import React from 'react'
 import firebase from '../../firebase'
+import { calculateAndUpdateQuantity } from '../../functions/calculateQuantity'
 
 class NewOrderForm extends React.Component {
 
@@ -40,6 +41,7 @@ class NewOrderForm extends React.Component {
         this.addOrderToFirebase()
         const msg = document.getElementById('submit-order-form')
         msg.classList.add('active')
+        calculateAndUpdateQuantity(this.state.product, this.state.stock)
         setTimeout(() => {
             msg.classList.remove('active')
         }, 1000)

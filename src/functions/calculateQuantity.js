@@ -52,7 +52,6 @@ function updateAllQuantityFirebase(products, stocks) {
                 calculateAndUpdateQuantity(products[i], stocks[j])
             }
         }
-
     } else {
         console.error('Did not update all quantity due to array length problem.')
     }
