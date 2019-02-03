@@ -11,9 +11,10 @@ class OrdersPage extends React.Component {
     }
 
     getProductsFromFirebase() {
-        const orders = []
         const db = firebase.firestore()
-        db.collection('orders').get().then((snapshot) => {
+        let orders = []
+        db.collection('orders').orderBy('date').onSnapshot((snapshot) => {
+            orders = []
             snapshot.docs.forEach(doc => {
                 let order = doc.data()
                 orders.push(order)

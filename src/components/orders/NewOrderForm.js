@@ -38,6 +38,11 @@ class NewOrderForm extends React.Component {
     onSubmit(e) {
         e.preventDefault()
         this.addOrderToFirebase()
+        const msg = document.getElementById('submit-order-form')
+        msg.classList.add('active')
+        setTimeout(() => {
+            msg.classList.remove('active')
+        }, 1000)
     }
 
     render() {
@@ -89,6 +94,9 @@ class NewOrderForm extends React.Component {
                     </div>
                 </div>
                 <div className='row'>
+                    <span id='submit-order-form' className='submit-ok'>
+                        Din order är nu tillagd...
+                    </span>
                     <input type='submit' className='primary-button' value="Lägg till order"></input>
                 </div>
             </form>
