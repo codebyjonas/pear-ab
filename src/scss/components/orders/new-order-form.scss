@@ -1,0 +1,30 @@
+.new-order-form {
+    background-color: white;
+    border-bottom: 2px solid darken($light-grey-color, 15%);
+    border-radius: $border-radius;
+    padding: 1rem;
+    width: 100%;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            padding-right: 2rem;
+
+            label {
+                border-bottom: 2px solid darken($light-grey-color, 15%);
+                margin-bottom: .5rem;
+                padding-bottom: .25rem;
+            }
+        }
+
+        &:last-child {
+            justify-content: flex-end;
+        }
+    }
+}

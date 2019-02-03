@@ -10,11 +10,14 @@
 @import '../scss/components/stocks/stock';
 @import '../scss/components/orders/orders-header';
 @import '../scss/components/orders/order';
+@import '../scss/components/orders/new-order';
+@import '../scss/components/orders/new-order-form';
 
 //general-components
-@import '../scss/general-components/table-header.scss';
-@import '../scss/general-components/table-row.scss';
-@import '../scss/general-components/buttons.scss';
+@import '../scss/general-components/table-header';
+@import '../scss/general-components/table-row';
+@import '../scss/general-components/buttons';
+@import '../scss/general-components/form';
 
 body {
     margin: 0;

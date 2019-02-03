@@ -9,13 +9,17 @@ class NewOrder extends React.Component {
 
     render() {
         if (this.state.open) {
-            return <NewOrderForm />
+            return (
+                <div className='new-order-container'>
+                    <NewOrderForm />
+                </div>
+            )
         } else {
             return (
-                <div>
+                <div className='new-order-container'>
                     <button
                         onClick={() => this.setState({ open: true })}
-                        className='primary-button'
+                        className='new-order-btn primary-button'
                     >
                         Registrera ny order
                     </button>
