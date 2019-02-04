@@ -4,5 +4,13 @@
         &:last-child {
             text-align: right;
         }
+
+        &.positive {
+            border-bottom: 3px solid $confirmation-color;
+        }
+
+        &.negative {
+            border-bottom: 3px solid $error-color;
+        }
     }
 }

@@ -5,8 +5,14 @@ const Order = props => (
         <div><span>{Intl.DateTimeFormat('sv-SE').format(props.date.seconds * 1000)}</span></div>
         <div><span>{props.product}</span></div>
         <div><span>{props.stock}</span></div>
-        <div><span>{props.quantity}</span></div>
+        <div
+            className={
+                props.quantity > 0 ? 'positive' : 'negative'
+            }
+        >
+            <span>{props.quantity}</span>
+        </div>
     </div>
-    )
+)
 
 export default Order
