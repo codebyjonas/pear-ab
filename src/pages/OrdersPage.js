@@ -19,6 +19,7 @@ class OrdersPage extends React.Component {
                 let order = doc.data()
                 orders.push(order)
             })
+            this.setState({ orders: [] })
             this.setState({ orders: orders })
         })
     }

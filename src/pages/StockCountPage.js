@@ -10,13 +10,15 @@ class StocksCountPage extends React.Component {
     }
 
     getStocksFromFirebase() {
-        const stocksCount = []
+        let stocksCount = []
         const db = firebase.firestore()
-        db.collection('stocksCount').get().then((snapshot) => {
+        db.collection('stocksCount').onSnapshot((snapshot) => {
+            stocksCount = []
             snapshot.docs.forEach(doc => {
                 let product = doc.data()
                 stocksCount.push(product)
             })
+            this.setState({ stocksCount: [] })
             this.setState({ stocksCount: stocksCount })
         })
     }

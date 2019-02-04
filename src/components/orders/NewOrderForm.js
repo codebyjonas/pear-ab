@@ -1,6 +1,6 @@
 import React from 'react'
 import firebase from '../../firebase'
-import { calculateAndUpdateQuantity } from '../../functions/calculateQuantity'
+import { calculateAndUpdateQuantity, getQuantity } from '../../functions/calculateQuantity'
 
 class NewOrderForm extends React.Component {
 
@@ -11,12 +11,14 @@ class NewOrderForm extends React.Component {
             date: '',
             product: '',
             stock: '',
-            quantity: 0
+            quantity: 0,
+            quantityLeft: 0
         }
 
         this.handleChange = this.handleChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
         this.addOrderToFirebase = this.addOrderToFirebase.bind(this)
+        this.calculateQuantityLeft = this.calculateQuantityLeft.bind(this)
     }
 
     handleChange(e) {
@@ -28,12 +30,21 @@ class NewOrderForm extends React.Component {
             value = new Date(value)
         }
 
-        this.setState({ [name]: value })
+        this.setState(
+            { [name]: value },
+            () => this.calculateQuantityLeft()
+        )
+
     }
 
     addOrderToFirebase() {
         const db = firebase.firestore()
-        db.collection('orders').add(this.state)
+        db.collection('orders').add({
+            'date': this.state.date,
+            'product': this.state.product,
+            'stock': this.state.stock,
+            'quantity': this.state.quantity,
+        })
     }
 
     onSubmit(e) {
@@ -45,6 +56,24 @@ class NewOrderForm extends React.Component {
         setTimeout(() => {
             msg.classList.remove('active')
         }, 1000)
+    }
+
+    async calculateQuantityLeft() {
+        if (this.state.product !== '' && this.state.stock !== '') {
+            let sum = 0
+            const db = firebase.firestore()
+            db.collection('orders')
+                .where('product', '==', this.state.product)
+                .where('stock', '==', this.state.stock)
+                .get().then((snapshot) => {
+                    snapshot.docs.forEach(doc => {
+                        let product = doc.data()
+                        sum += parseInt(product.quantity)
+                    })
+                    this.setState({ quantityLeft: sum })
+                })
+
+        }
     }
 
     render() {
@@ -92,7 +121,7 @@ class NewOrderForm extends React.Component {
                             onChange={this.handleChange}
                         >
                         </input>
-                        <span>Tillgängliga: xxx</span>
+                        <span>Tillgängliga: {this.state.quantityLeft}</span>
                     </div>
                 </div>
                 <div className='row'>
