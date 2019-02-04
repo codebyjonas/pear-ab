@@ -1,6 +1,7 @@
 import React from 'react'
 import firebase from '../../firebase'
 import { calculateAndUpdateQuantity, getQuantity } from '../../functions/calculateQuantity'
+import Toast from '../../components/page-elements/Toast'
 
 class NewOrderForm extends React.Component {
 
@@ -12,7 +13,8 @@ class NewOrderForm extends React.Component {
             product: '',
             stock: '',
             quantity: 0,
-            quantityLeft: 0
+            quantityLeft: 0,
+            submitok: false
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -50,12 +52,12 @@ class NewOrderForm extends React.Component {
     onSubmit(e) {
         e.preventDefault()
         this.addOrderToFirebase()
-        const msg = document.getElementById('submit-order-form')
-        msg.classList.add('active')
         calculateAndUpdateQuantity(this.state.product, this.state.stock)
-        setTimeout(() => {
-            msg.classList.remove('active')
-        }, 1000)
+        this.setState({ submitok: true })
+        setTimeout(
+            () => this.setState({ submitok: false }),
+            3000
+        )
     }
 
     async calculateQuantityLeft() {
@@ -72,62 +74,64 @@ class NewOrderForm extends React.Component {
                     })
                     this.setState({ quantityLeft: sum })
                 })
-
         }
     }
 
     render() {
         return (
-            <form className='new-order-form' onSubmit={this.onSubmit}>
-                <div className='row'>
-                    <div>
-                        <label>Datum</label>
-                        <input
-                            name='date'
-                            type='date'
-                            onChange={this.handleChange}
-                        >
-                        </input>
+            <div>
+                <form className='new-order-form' onSubmit={this.onSubmit}>
+                    <div className='row'>
+                        <div>
+                            <label>Datum</label>
+                            <input
+                                name='date'
+                                type='date'
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label>Produkt</label>
+                            <select
+                                name='product'
+                                onChange={this.handleChange}
+                            >
+                                <option value='null'>-----</option>
+                                <option value='jTelefon'>jTelefon</option>
+                                <option value='jPlatta'>jPlatta</option>
+                                <option value='Päronklocka'>Päronklocka</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Till / Från</label>
+                            <select
+                                name='stock'
+                                onChange={this.handleChange}
+                            >
+                                <option value='null'>-----</option>
+                                <option value='Cupertino'>Cupertino</option>
+                                <option value='Norrköping'>Norrköping</option>
+                                <option value='Frankfurt'>Frankfurt</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Antal</label>
+                            <input
+                                type='text'
+                                name='quantity'
+                                onChange={this.handleChange}
+                            >
+                            </input>
+                        </div>
                     </div>
-                    <div>
-                        <label>Produkt</label>
-                        <select
-                            name='product'
-                            onChange={this.handleChange}
-                        >
-                            <option value='null'>-----</option>
-                            <option value='jTelefon'>jTelefon</option>
-                            <option value='jPlatta'>jPlatta</option>
-                            <option value='Päronklocka'>Päronklocka</option>
-                        </select>
+                    <div className='row'>
+                        <span className='available-quantity'>Tillgängliga: {this.state.quantityLeft}</span>
+                        <input type='submit' className='primary-button' value="Lägg till order"></input>
                     </div>
-                    <div>
-                        <label>Till / Från</label>
-                        <select
-                            name='stock'
-                            onChange={this.handleChange}
-                        >
-                            <option value='null'>-----</option>
-                            <option value='Cupertino'>Cupertino</option>
-                            <option value='Norrköping'>Norrköping</option>
-                            <option value='Frankfurt'>Frankfurt</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Antal</label>
-                        <input
-                            type='text'
-                            name='quantity'
-                            onChange={this.handleChange}
-                        >
-                        </input>
-                    </div>
-                </div>
-                <div className='row'>
-                    <span className='available-quantity'>Tillgängliga: {this.state.quantityLeft}</span>
-                    <input type='submit' className='primary-button' value="Lägg till order"></input>
-                </div>
-            </form>
+                </form>
+                <Toast open={this.state.submitok} message={'Din order är nu tillagd...'} />
+            </div>
         )
     }
 }

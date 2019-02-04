@@ -1,0 +1,12 @@
+.toast {
+    background-color: $confirmation-color;
+    bottom: 50px;
+    border-radius: $border-radius;
+    box-shadow: 0 .25em .5em darken($confirmation-color, 20%);
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
