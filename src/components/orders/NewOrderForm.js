@@ -121,13 +121,10 @@ class NewOrderForm extends React.Component {
                             onChange={this.handleChange}
                         >
                         </input>
-                        <span>Tillgängliga: {this.state.quantityLeft}</span>
                     </div>
                 </div>
                 <div className='row'>
-                    <span id='submit-order-form' className='submit-ok'>
-                        Din order är nu tillagd...
-                    </span>
+                    <span className='available-quantity'>Tillgängliga: {this.state.quantityLeft}</span>
                     <input type='submit' className='primary-button' value="Lägg till order"></input>
                 </div>
             </form>

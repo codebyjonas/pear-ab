@@ -41,4 +41,12 @@
             }
         }
     }
+
+    .available-quantity {
+        background-color: lighten($light-grey-color, 10%);
+        border-radius: $border-radius;
+        border: 2px solid $light-grey-color;
+        margin-right: 1rem;
+        padding: 1rem 1rem .75rem;
+    }
 }
