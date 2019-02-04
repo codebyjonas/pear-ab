@@ -54,13 +54,14 @@ class NewOrderForm extends React.Component {
         this.addOrderToFirebase()
         calculateAndUpdateQuantity(this.state.product, this.state.stock)
         this.setState({ submitok: true })
+        this.calculateQuantityLeft()
         setTimeout(
             () => this.setState({ submitok: false }),
             3000
         )
     }
 
-    async calculateQuantityLeft() {
+    calculateQuantityLeft() {
         if (this.state.product !== '' && this.state.stock !== '') {
             let sum = 0
             const db = firebase.firestore()
