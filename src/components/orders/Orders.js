@@ -4,7 +4,7 @@ import OrdersHeader from './OrdersHeader'
 
 const Orders = props => (
     <div>
-        <OrdersHeader />
+        <OrdersHeader setOrderBy={props.setOrderBy}/>
         {
             props.orders.length > 0 ?
                 props.orders.map((order) =>

@@ -2,6 +2,12 @@ import React from 'react'
 
 
 class OrdersHeader extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            activeFilter: 'date'
+        }
+    }
 
 
     handleScroll() {
@@ -21,13 +27,18 @@ class OrdersHeader extends React.Component {
         window.addEventListener('scroll', this.handleScroll)
     }
 
+    onClick = (e) => {
+        this.setState({activeFilter: e.target.getAttribute('data-value')})
+        this.props.setOrderBy(e.target.getAttribute('data-value'))
+    }
+
     render() {
         return (
-            <div className='orders-header-container table-header-container'>
-                <div><span>Datum</span></div>
-                <div><span>Produkt</span></div>
-                <div><span>Till / från</span></div>
-                <div><span>Antal</span></div>
+            <div data-active={this.state.activeFilter} className='orders-header-container table-header-container'>
+                <div><span data-value='date' onClick={this.onClick}>Datum</span></div>
+                <div><span data-value='product' onClick={this.onClick}>Produkt</span></div>
+                <div><span data-value='stock' onClick={this.onClick}>Till / från</span></div>
+                <div><span data-value='quantity' onClick={this.onClick}>Antal</span></div>
             </div>
         )
     }
