@@ -35,10 +35,10 @@ class OrdersHeader extends React.Component {
     render() {
         return (
             <div data-active={this.state.activeFilter} className='orders-header-container table-header-container'>
-                <div><span data-value='date' onClick={this.onClick}>Datum</span></div>
-                <div><span data-value='product' onClick={this.onClick}>Produkt</span></div>
-                <div><span data-value='stock' onClick={this.onClick}>Till / från</span></div>
-                <div><span data-value='quantity' onClick={this.onClick}>Antal</span></div>
+                <div><span data-value='date' className={this.state.activeFilter === 'date' ? 'active' : null} onClick={this.onClick}>Datum</span></div>
+                <div><span data-value='product' className={this.state.activeFilter === 'product' ? 'active' : null} onClick={this.onClick}>Produkt</span></div>
+                <div><span data-value='stock' className={this.state.activeFilter === 'stock' ? 'active' : null} onClick={this.onClick}>Till / från</span></div>
+                <div><span data-value='quantity' className={this.state.activeFilter === 'quantity' ? 'active' : null} onClick={this.onClick}>Antal</span></div>
             </div>
         )
     }

@@ -12,7 +12,7 @@ class StocksPage extends React.Component {
     getStocksFromFirebase() {
         const stocks = []
         const db = firebase.firestore()
-        db.collection('stocks').get().then((snapshot) => {
+        db.collection('stocks').orderBy('id').get().then((snapshot) => {
             snapshot.docs.forEach(doc => {
                 let stock = doc.data()
                 stocks.push(stock)

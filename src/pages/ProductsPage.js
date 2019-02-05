@@ -12,7 +12,7 @@ class ProductsPage extends React.Component {
     getProductsFromFirebase() {
         const products = []
         const db = firebase.firestore()
-        db.collection('products').get().then((snapshot) => {
+        db.collection('products').orderBy('product_id').get().then((snapshot) => {
             snapshot.docs.forEach(doc => {
                 let product = doc.data()
                 products.push(product)

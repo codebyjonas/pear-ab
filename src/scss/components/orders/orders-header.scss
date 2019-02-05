@@ -1,6 +1,19 @@
 .orders-header-container {
     div {
         width: 25%;
+
+        .active:before {
+            content: '▼';
+        }
+
+        span {
+            cursor: pointer;
+            transition: opacity 300ms;
+            &:hover {
+                opacity: .5;
+            }
+        }
+
         &:last-child {
             text-align: right;
         }
