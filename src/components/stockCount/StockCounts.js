@@ -6,8 +6,7 @@ class StockCounts extends React.Component {
 
     state = {
         lowQuantity: 10000,
-        medQuantity: 500000,
-        highQuantity: 100000
+        medQuantity: 50000
     }
 
     render() {
@@ -22,6 +21,8 @@ class StockCounts extends React.Component {
                                 stock={stockCount.stock}
                                 product={stockCount.product}
                                 count={stockCount.count}
+                                lowQuantity={this.state.lowQuantity}
+                                medQuantity={this.state.medQuantity}
                             />
                         )
                         :

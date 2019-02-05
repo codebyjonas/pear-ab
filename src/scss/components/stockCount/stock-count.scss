@@ -4,5 +4,15 @@
         &:last-child {
             text-align: right;
         }
+
+        &[data-type='good'] {
+            border-bottom: 3px solid $confirmation-color;
+        }
+        &[data-type='warning'] {
+            border-bottom: 3px solid $warning-color;
+        }
+        &[data-type='danger'] {
+            border-bottom: 3px solid $error-color;
+        }
     }
 }
