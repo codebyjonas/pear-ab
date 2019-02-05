@@ -2,14 +2,11 @@ import React from 'react'
 
 class Toast extends React.Component {
 
-    state = {
-        open: true
-    }
 
     render() {
         if (this.props.open) {
             return (
-                <div className='toast'>
+                <div className='toast' data-type={this.props.type}>
                     <span>{this.props.message}</span>
                 </div>
             )

@@ -9,4 +9,9 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
+
+    &[data-type='error'] {
+        background-color: $error-color;
+        box-shadow: 0 .25em .5em darken($error-color, 20%);
+    }
 }

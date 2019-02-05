@@ -71,7 +71,11 @@ class NewOrderForm extends React.Component {
                 3000
             )
         } else {
-            this.setState({ submitok: true })
+            this.setState({ submitError: true })
+            setTimeout(
+                () => this.setState({ submitError: false }),
+                3000
+            )
 
         }
     }
@@ -148,13 +152,13 @@ class NewOrderForm extends React.Component {
                             </div>
                         </div>
                     </div>
-                <div className='row submit-row'>
-                    <span className='available-quantity'>Tillgängliga: {this.state.quantityLeft}</span>
-                    <input type='submit' className='primary-button' value="Lägg till order"></input>
-                </div>
+                    <div className='row submit-row'>
+                        <span className='available-quantity'>Tillgängliga: {this.state.quantityLeft}</span>
+                        <input type='submit' className='primary-button' value="Lägg till order"></input>
+                    </div>
                 </form>
-            <Toast open={this.state.submitok} message={'Din order är nu tillagd...'} />
-            <Toast open={this.state.submitError} message={`Det finns för få ${this.state.product} på lagret i ${this.state.stock}`} />
+                <Toast type={'confirmation'} open={this.state.submitok} message={'Din order är nu tillagd...'} />
+                <Toast type={'error'} open={this.state.submitError} message={`Det finns för få ${this.state.product} på lagret i ${this.state.stock}`} />
             </div >
         )
     }
