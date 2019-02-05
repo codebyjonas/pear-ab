@@ -7,14 +7,18 @@ const Stocks = props => (
         <StocksHeader />
         {
             props.stocks.length > 0 ?
-            props.stocks.map((stock) =>
-                <Stock
-                    key={stock.id}
-                    id={stock.id}
-                    city={stock.city}
-                />
-            )
-            : <h2>Inga färdigvarulager tillängliga</h2>
+                props.stocks.map((stock) =>
+                    <Stock
+                        key={stock.id}
+                        id={stock.id}
+                        city={stock.city}
+                    />
+                )
+                :
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
         }
     </div>
 )

@@ -16,7 +16,11 @@ const Orders = props => (
                         stock={order.stock}
                     />
                 )
-                : <h2>Inga ordrar tillängliga</h2>
+                :
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
         }
     </div>
 )
