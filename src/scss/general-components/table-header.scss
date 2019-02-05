@@ -4,4 +4,16 @@
     font-weight: bold;
     margin-bottom: .25rem;
     padding: 1rem 1rem .25rem;
+
+    &.sticky {
+        position: fixed;
+        width: 90%;
+        left: 50%;
+        max-width: 1280px;
+        box-sizing: border-box;
+        transform: translateX(-50%);
+        background-color: $light-grey-color;
+        top: 0;
+        padding: 2rem 1rem .5rem;
+    }
 }
