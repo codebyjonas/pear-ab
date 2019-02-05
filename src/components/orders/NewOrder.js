@@ -4,7 +4,7 @@ import NewOrderForm from './NewOrderForm';
 class NewOrder extends React.Component {
 
     state = {
-        open: true
+        open: false
     }
 
     render() {
